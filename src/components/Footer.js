@@ -1,7 +1,11 @@
 import React from "react";
 
 const Footer = () => {
-  return <div>created by @redwan-mahmud - devChallenges.io</div>;
+  return (
+    <div>
+      <footer>created by @redwan-mahmud - devChallenges.io</footer>
+    </div>
+  );
 };
 
 export default Footer;
