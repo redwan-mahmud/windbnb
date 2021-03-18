@@ -17,7 +17,7 @@ const App = () => {
       <CssBaseline />
       <Container fixed>
         <Header />
-        <Search />
+        <Search homes={homes} />
         <List homes={homes} />
         <Footer />
       </Container>
