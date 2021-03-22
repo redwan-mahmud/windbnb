@@ -1,19 +1,15 @@
-import React, {useState,useContext} from "react";
-import {StaysContext} from '../StaysContext'
+import React, {useState} from "react";
 
 //use react dropdown
-const Search = () => {
+const Search = ({homes, filterList}) => {
 
-  
-  const [homes, setHomes] = useContext(StaysContext)
-  const [filteredList,setFilteredList] = useContext(StaysContext);
   const [city,setCity] = useState('Helsinki');
   const [adults, setAdults] = useState(0);
   const [children, setChildren] = useState(0);
 
   
 
-  console.log(homes)
+  //console.log(homes)
   const cities = homes.map((home) => home.city);
   let cityOptions =[...new Set(cities)]
 
@@ -38,15 +34,13 @@ const Search = () => {
 
   }
 
-  const filterList = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    var newHomes = filteredList.filter(home => (home.city.includes(city) && home.maxGuests > (adults + children)))
-    setFilteredList(newHomes)
-    console.log("hi")
-    setCity(cities)
+    filterList(city, adults,children);
     
+     
   }
-
+ 
   const Guests = () => {
     
     return(
@@ -72,7 +66,7 @@ const Search = () => {
   
   return (
     <div>
-      <form  onSubmit = {filterList}>
+      <form  onSubmit = {handleSubmit}>
         <label>
           Location
           <select onChange = {handleChange} value = {city}>

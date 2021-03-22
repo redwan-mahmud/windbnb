@@ -1,7 +1,7 @@
-import React, {useState,useContext} from "react";
-import {StaysContext} from '../../StaysContext'
-const List = () => {
-  const [filteredList,setFilteredList] = useContext(StaysContext);
+import React, {useState} from "react";
+
+const List = ({filteredList}) => {
+  
   console.log(filteredList)
   const listItems = filteredList.map((home) => (
     <li>
